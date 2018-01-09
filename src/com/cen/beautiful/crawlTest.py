@@ -9,9 +9,18 @@ def getHTML(url):
 crawl_url = 'https://www.qiushibaike.com/text'
 res = BeautifulSoup(getHTML(crawl_url),'html.parser',from_encoding='utf-8')
 contenttext = res.find_all(name="div",attrs={"class":"content"})
-f = open('D:/content.txt','w',encoding ='utf-8')
-for i in contenttext:
-    f.write(i.get_text())
+f = open('D:/content22.txt','w',encoding ='utf-8')
+i = 1
+for li in contenttext:
+    f.write(str(i)+'. ')
+    i += 1
+    for lj in range(0,len(li.get_text().strip()),100):
+        f.write(li.get_text().strip()[lj:lj+100]+'\n')
+        f.write('\n')
+    #print('sssss')  
+    #f.write(li.get_text().strip()+'\n\n')
 f.close()
-
+#tests = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+#for i in range(0,len(tests),10):
+    #print(tests[i:i+10])
 
