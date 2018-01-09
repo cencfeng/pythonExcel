@@ -31,14 +31,14 @@ class Spider:
         i = 1
         while True:
             if self.page <= 10:
-                self.get_stories()            
+                self.get_stories()          
                 for story in self.stories:
                     f.write(str(i)+'. ')
                     i += 1
                     for lj in range(0,len(story.get_text().strip()),100):
                         f.write(story.get_text().strip()[lj:lj+100]+'\n')
                         f.write('\n')
-                    #f.write(story.get_text())
+                    #f.write(story.get_text())'''
         f.close()
 spider = Spider()
 spider.start()
