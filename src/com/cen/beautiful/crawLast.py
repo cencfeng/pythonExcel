@@ -36,14 +36,14 @@ class Crawqsbk:
         f = open('D:/crawlast.txt','w',encoding ='utf-8')
         ii = 1
         while self.i <=10:
-            time.sleep(0.5)
+            time.sleep(0.2)
             self.getData()
             for li in self.contenttext:
                 f.write(str(ii)+'. ')
                 ii += 1
                 if 'contentForAll' in str(li):
                     suburl = self.sub_url+li.get('href')
-                    time.sleep(0.5)
+                    time.sleep(0.2)
                     self.getSubData(suburl)         
                     for m in self.subcontext:
                         for lj in range(0,len(m.get_text().strip()),100):
